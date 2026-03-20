@@ -13,14 +13,15 @@ export default defineConfig({
         name: 'Subscription Leak Finder',
         short_name: 'SubLeak',
         description: 'Find your $600 in 5 minutes. Track and cancel forgotten AU subscriptions.',
-        start_url: '/',
+        start_url: '/subscription-leak-finder/',
+        scope: '/subscription-leak-finder/',
         display: 'standalone',
         background_color: '#0f2744',
         theme_color: '#0f2744',
         orientation: 'portrait-primary',
         icons: [
-          { src: '/icons/icon-192.png', sizes: '192x192', type: 'image/png', purpose: 'any maskable' },
-          { src: '/icons/icon-512.png', sizes: '512x512', type: 'image/png', purpose: 'any maskable' },
+          { src: 'icons/icon-192.png', sizes: '192x192', type: 'image/png', purpose: 'any maskable' },
+          { src: 'icons/icon-512.png', sizes: '512x512', type: 'image/png', purpose: 'any maskable' },
         ],
       },
       workbox: {

@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from '@/context/AuthContext';
 import AppShell from '@/components/Layout/AppShell';
 
@@ -57,11 +57,11 @@ const AppRoutes = () => {
 };
 
 const App = () => (
-  <BrowserRouter>
+  <HashRouter>
     <AuthProvider>
       <AppRoutes />
     </AuthProvider>
-  </BrowserRouter>
+  </HashRouter>
 );
 
 export default App;
