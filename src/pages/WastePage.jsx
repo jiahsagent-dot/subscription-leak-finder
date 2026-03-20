@@ -3,8 +3,8 @@ import { AlertTriangle, TrendingDown, BookOpen, Zap, CheckCircle } from 'lucide-
 import { differenceInDays } from 'date-fns';
 import { useAuth } from '@/context/AuthContext';
 import { useSubscriptions } from '@/hooks/useSubscriptions';
-import { formatAUD, toMonthly } from '@/utils/subscriptionUtils';
-import { CATEGORIES } from '@/data/commonSubscriptions';
+import { formatAUD } from '@/utils/subscriptionUtils';
+import { CATEGORIES, toMonthly } from '@/data/commonSubscriptions';
 import PremiumGate from '@/components/Layout/PremiumGate';
 
 const WastePage = () => {
