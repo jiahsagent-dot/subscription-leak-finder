@@ -1,5 +1,6 @@
 import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from '@/context/AuthContext';
+import { isDemoMode } from '@/lib/firebase';
 import AppShell from '@/components/Layout/AppShell';
 
 import LoginScreen       from '@/components/Auth/LoginScreen';
@@ -19,13 +20,14 @@ const Guard = ({ children }) => {
       <div className="w-10 h-10 border-4 border-white/30 border-t-white rounded-full animate-spin" />
     </div>
   );
-  return user ? children : <Navigate to="/login" replace />;
+  // Demo mode: always authenticated
+  return (isDemoMode || user) ? children : <Navigate to="/login" replace />;
 };
 
 const AppRoutes = () => {
   const { user, loading } = useAuth();
 
-  if (loading) return (
+  if (!isDemoMode && loading) return (
     <div className="min-h-screen bg-brand-900 flex items-center justify-center">
       <div className="w-10 h-10 border-4 border-white/30 border-t-white rounded-full animate-spin" />
     </div>
@@ -33,8 +35,8 @@ const AppRoutes = () => {
 
   return (
     <Routes>
-      <Route path="/login"    element={user ? <Navigate to="/" replace /> : <LoginScreen />} />
-      <Route path="/register" element={user ? <Navigate to="/" replace /> : <RegisterScreen />} />
+      <Route path="/login"    element={(isDemoMode || user) ? <Navigate to="/" replace /> : <LoginScreen />} />
+      <Route path="/register" element={(isDemoMode || user) ? <Navigate to="/" replace /> : <RegisterScreen />} />
 
       <Route path="/*" element={
         <Guard>
