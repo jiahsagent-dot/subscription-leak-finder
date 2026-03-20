@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
 
 export default defineConfig({
-  base: '/subscription-leak-finder/',
+  base: '/',
   plugins: [
     react(),
     VitePWA({
@@ -13,8 +13,8 @@ export default defineConfig({
         name: 'Subscription Leak Finder',
         short_name: 'SubLeak',
         description: 'Find your $600 in 5 minutes. Track and cancel forgotten AU subscriptions.',
-        start_url: '/subscription-leak-finder/',
-        scope: '/subscription-leak-finder/',
+        start_url: '/',
+        scope: '/',
         display: 'standalone',
         background_color: '#0f2744',
         theme_color: '#0f2744',
